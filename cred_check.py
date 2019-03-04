@@ -1,13 +1,44 @@
-def cred_validation():
-    import time
-    import getpass
-    import sys
+# Python script to gather user credentials and evaluate the following:
+# - is username 20 characters or less?
+# - is password 5 or more characters?
+# - are username and password the same?
+# - are there any white spaces surrounding the username or password?
+# - some simple timed things just for the fun of it
+
+
+# import modules
+import time, getpass, sys
+
+# Gather username and password from user
+def get_username_password():
     username = input('Enter Username: ')
     password = getpass.getpass(prompt='Enter Password: ')
-    print('Checking credentials for validity...')
-    time.sleep(1.5)
-    print('Still checking')
-    time.sleep(1.5)
+    return username, password
+
+#fucntion to gather credentials
+def cred_validation():
+    
+    user_and_pass = get_username_password()
+    username = user_and_pass[0]
+    password = user_and_pass[1]
+
+    
+    if username == password:
+        print('Username and Password cannot be the same; please try again')
+        get_username_password()
+    else:
+        print('Checking credentials for validity...')
+        time.sleep(1)
+        print('Still checking')
+        time.sleep(1)
+    if username == username.strip():
+        whitespace_username = True
+    else:
+            whitespace_username = False
+    if password == password.strip:
+        whispace_password = True
+    else:
+            whitespace_password = False
     if len(username) <= 20:
         time.sleep(.5)
         print('Username passes')
@@ -20,8 +51,8 @@ def cred_validation():
     else:
         time.sleep(.5)
         print('Password fails')
-    time.sleep(1)
-    print('Credentials check complete')
+        time.sleep(1)
+        print('Credentials check complete')
     show_check = input('Type 7 if you would like to see your credentials: ')
     if show_check == "7":
         time.sleep(.5)
@@ -35,3 +66,5 @@ def cred_validation():
         print('Thank you, ending routine.  Have a nice day.')
     else:
         print('Thank you, ending routine.  Have a nice day.')
+
+cred_validation()
