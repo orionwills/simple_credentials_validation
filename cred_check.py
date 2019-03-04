@@ -32,13 +32,13 @@ def cred_validation():
         print('Still checking')
         time.sleep(1)
     if username == username.strip():
-        whitespace_username = True
+        whitespace_username = False
     else:
-            whitespace_username = False
+            whitespace_username = True
     if password == password.strip:
-        whispace_password = True
+        whispace_password = False
     else:
-            whitespace_password = False
+            whitespace_password = True
     if len(username) <= 20:
         time.sleep(.5)
         print('Username passes')
